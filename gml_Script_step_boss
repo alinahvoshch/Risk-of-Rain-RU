@@ -1,0 +1,82 @@
+elite_tier = elite_tier_from_blend(image_blend);
+
+if (ceil((hp / maxhp) * 10) < health_tier && oInit.coop == 2)
+{
+    health_tier -= 1;
+    server_message_send(0, 38, object_index, m_id, ceil(hp));
+}
+
+if (oHUD.boss != 1)
+{
+    if (argument0 == 0)
+        oHUD.boss_hp_color = 4802996;
+    
+    if (argument0 == 2)
+        oHUD.boss_hp_color = 10833558;
+    
+    oHUD.boss = 1;
+    oHUD.boss_id = id;
+    oHUD.boss_hp = hp;
+    oHUD.boss_maxhp = maxhp;
+    oHUD.boss_text2 = name2;
+}
+else if (oHUD.boss_id == id)
+{
+    switch (image_blend)
+    {
+        case 4235519:
+            oHUD.boss_text1 = name + " нестабильности";
+            break;
+        
+        case 5678579:
+            oHUD.boss_text1 = name + " нестабильности";
+            break;
+        
+        case 65535:
+            oHUD.boss_text1 = name + " безумия";
+            break;
+        
+        case 8114927:
+            oHUD.boss_text1 = name + " безумия";
+            break;
+        
+        case 14341767:
+            oHUD.boss_text1 = name + " перегрузки";
+            break;
+        
+        case 12093564:
+            oHUD.boss_text1 = name + " перегрузки";
+            break;
+        
+        case 3230427:
+            oHUD.boss_text1 = name + " пламени";
+            break;
+        
+        case 255:
+            oHUD.boss_text1 = name + " пламени";
+            break;
+        
+        case 6710991:
+            oHUD.boss_text1 = name + " пламени";
+            break;
+        
+        case 32768:
+            oHUD.boss_text1 = name + " кровожадности";
+            break;
+        
+        case 8828542:
+            oHUD.boss_text1 = name + " кровожадности";
+            break;
+        
+        case 0:
+            oHUD.boss_text1 = name  + " болезни";
+            break;
+        
+        default:
+            oHUD.boss_text1 = name;
+            break;
+    }
+    
+    oHUD.boss_hp = hp;
+    oHUD.boss_maxhp = maxhp;
+}
